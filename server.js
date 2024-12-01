@@ -14,7 +14,7 @@ let app = express()
 let port = process.env.PORT || 3000
 
 app.engine("handlebars", exphbs.engine({
-    defaultLayout: null
+    defaultLayout: "main"
 }))
 app.set("view engine", "handlebars")
 
@@ -22,7 +22,7 @@ app.use(express.static('static'))
 
 app.get('/', function (req, res) {
     console.log("== Recieved index request")
-    res.status(200).render("index", {})
+    res.status(200).render("index", {games: 0})
 })
 
 app.post('/api/getMove/', function (req, res, next) {
