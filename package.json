@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npm i && handlebars views/ -f static/templates.js && cp node_modules/draughts/draughts.js static/draughts.js",
+    "prestart": "npm run build",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
@@ -14,5 +17,10 @@
   "bugs": {
     "url": "https://github.com/Llarence/CS290Checkers/issues"
   },
-  "homepage": "https://github.com/Llarence/CS290Checkers#readme"
+  "homepage": "https://github.com/Llarence/CS290Checkers#readme",
+  "dependencies": {
+    "draughts": "^0.0.1",
+    "express": "^4.21.1",
+    "express-handlebars": "^8.0.1"
+  }
 }
